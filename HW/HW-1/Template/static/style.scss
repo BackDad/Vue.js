@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 .header {
   margin-top: 44px;
@@ -209,6 +210,7 @@ body {
 }
 .Blog {
   margin-top: 40px;
+  width: 1200px;
 }
 .Blog-text {
   display: flex;
@@ -314,4 +316,73 @@ body {
   justify-content: center;
   bottom: 10px;
   left: 10px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  width: 1200px;
+  height: 192px;
+  gap: 400px;
+}
+
+.Interno--footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 394px;
+  height: 134px;
+  gap: 30px;
+}
+.footer-text {
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.links {
+  display: flex;
+  width: 225px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.menu-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+}
+.menu-title .contacts-title {
+  color: #292f36;
+  font-family: DM Serif Display;
+  font-size: 25px;
+}
+.links-bar .adress .email .number {
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
 }
