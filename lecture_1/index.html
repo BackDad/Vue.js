@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <button v-on:click="sayHello">click</button>
+      <button v-on:click="incremeter(5,$event)">increase</button>
+      <h3 style="border: solid">Счетчик</h3>
+      <p style="border: solid">{{counter}}</p>
+      <h1 v-on:mousemove="mouseMove($event)">
+        Mouse move x = {{x}} y= {{y}} <span v-on:mousemove.stop>stop</span>
+      </h1>
+      <p v-html="bigTetx"></p>
+      <h3 v-if="prudecyAddInnCart">Добавить в корзину?</h3>
+      <h3 v-else="!prudecyAddInnCart">Добавлено в корзину!</h3>
+      <h3 v-show="prudecyAddInnCart">show</h3>
+      <button @click="prudecyAddInnCart=!prudecyAddInnCart">Add product</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          message: "hello Olga",
+          counter: 0,
+          x: 0,
+          y: 0,
+          bigTetx: 'big text <span>new text <a href="#"> info</a></span>',
+          prudecyAddInnCart: true,
+        },
+        methods: {
+          mouseMove(event) {
+            console.log(event);
+            this.x = event.screenX;
+            this.y = event.screenY;
+          },
+          sayHello() {
+            this.message = "new Message";
+          },
+          incremeter(step, event) {
+            this.counter += step;
+            console.log(event);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
