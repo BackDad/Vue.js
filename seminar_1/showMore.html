@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.5s;
+      }
+      .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <div id="app">
+      <button @click="showedContent=!showedContent">Показать еще</button>
+      <div v-if="showedContent">
+        <transition name="fade">
+          <img src="img1.png" alt="picture_python_type" />
+        </transition>
+      </div>
+      <div v-else="!showedContent">
+        <p></p>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          showedContent: false,
+        },
+        methods: {
+          showMore() {
+            this.showedContent = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
