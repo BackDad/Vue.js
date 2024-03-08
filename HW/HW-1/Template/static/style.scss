@@ -10,6 +10,7 @@ a {
 }
 body {
   font-family: "Lato", sans-serif, "DM Serif Display", "Jost";
+  cursor: pointer;
 }
 .container {
   padding-left: calc(50% - $widthScreen / 2);
@@ -128,8 +129,21 @@ body {
   height: 70px;
   background: #f4f0ec;
   color: #292f36;
+  cursor: pointer;
 }
-
+.butt-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  //border: #292f36 solid 2px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  color: #292f36;
+  cursor: pointer;
+}
 .title_project {
   color: #292f36;
   font-family: DM Serif Display;
@@ -192,4 +206,112 @@ body {
   width: 2px;
   border: rgba(201, 138, 29, 0.933) 3px solid transparent;
   background-color: #cda274;
+}
+.Blog {
+  margin-top: 40px;
+}
+.Blog-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.Articles {
+  color: #292f36;
+  font-family: DM Serif Display;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0em;
+}
+.under_text {
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.text-info {
+  margin-top: 20px;
+  color: #292f36;
+  font-family: DM Serif Display;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+}
+.text-date {
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.Blog-content {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+.text-area {
+  display: flex;
+  flex-direction: column;
+}
+.date-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.Blog-content-1 {
+  border: #ded9d9 solid 1px;
+  padding: 25px;
+  border-radius: 35px;
+}
+.Blog-content-2 {
+  border: #ded9d9 solid 1px;
+  padding: 25px;
+  border-radius: 35px;
+  background: #e7e7e7;
+}
+
+.photo {
+  position: relative;
+  width: 340px; /* Задайте желаемую ширину контейнера */
+  height: 289px; /* Задайте желаемую высоту контейнера */
+  border-radius: 35px 35px 0 0; /* Устанавливаем скругление углов в 10px */
+
+  /* Задаем стиль изображения внутри контейнера */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Подгоняем изображение так, чтобы оно полностью заполняло контейнер */
+    border-radius: inherit; /* Наследуем скругление углов от родителя */
+  }
+
+  /* Опционально: добавляем тень */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.tag {
+  position: absolute;
+  display: flex;
+  width: 124px;
+  height: 41px;
+  border-radius: 10px 10px 10px 0;
+  background: #fff;
+  color: #4d5053;
+  font-family: Jost;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0em;
+  align-items: center;
+  justify-content: center;
+  bottom: 10px;
+  left: 10px;
 }
