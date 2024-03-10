@@ -1,0 +1,134 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block {
+        width: 350px;
+        height: 200px;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+        }
+        .like{
+            color:red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" @keyup.enter="send()" /><button @click="send()">
+        Отправить
+      </button>
+      <p>{{message}}</p>
+      <h3>Link info</h3>
+      <a :href="linkRef">Ссылка на новую инфу</a>
+      <img :src="imgNew" alt="photo" />
+      <div class="block" :style="styleBlock">Lorem, ipsum.</div>
+      <h2>{{modelData}}</h2>
+      <input type="text" v-model.lazy="modelData" />
+      <button @click="headingText()" class="heading__button">
+        Сменить текст
+      </button>
+      <div class="calculator">
+        <h1>Калькулятор</h1>
+        <input type="text" v-model.number="firstIn" />
+        <input type="text" v-model.number="secondIn" />
+        =
+        <span>{{result}}</span>
+        <div>
+          <button @click="plus">+</button><button @click="sub">-</button
+          ><button @click="mul">*</button><button @click="div">/</button>
+        </div>
+      </div>
+      <div class="contructor">
+        <h1>Констурктор</h1>
+        <input type="text" v-model="blockWidth" />
+        <input type="text" v-model="blockColor" />
+        <div class="block" :style="change">Lorem, ipsum.</div>
+      </div>
+      <div class="listRenderer">
+        <h1>Отрисовка списков</h1>
+        <ul>
+          <li v-for="item in listItems" :key="item.id">{{item}}</li>
+        </ul>
+        <input type="text" v-model="NewList" @keyup.enter="addItem" />
+      </div>
+      <article v-for="article in data" :key="article.id" class="article">
+        <h2 class="article__title">{{article.title}}</h2>
+        <p class="article__text">{{article.text}}</p>
+        <button class="btn" @click="likeToggle=!likeToggle" :class="{like: likeToggle}">Like</button>  
+    </article>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          likeToggle: false,
+          data: [
+            { title: "Ватная игрушка", text: "лучшая для вас" },
+            { title: "Ватная петрушка", text: "кудрявая" },
+          ],
+          listItems: [1, 2, 4],
+          NewList: "",
+          blockWidth: 100,
+          blockColor: "#ccc",
+          firstIn: 0,
+          secondIn: 0,
+          result: 0,
+          modelData: "",
+          message: 0,
+          linkRef: "product.html ",
+          imgNew: "photo.jpg",
+          //styleBlock: {
+          //backgroundColor: //"green",
+          // color: "red",
+          //},
+        },
+        methods: {
+          addItem() {
+            this.listItems.push(this.NewList);
+          },
+          headingText() {
+            if (this.modelData == "") {
+              this.modelData = "Заголовок блока";
+            }
+          },
+          send() {
+            console.log("Sended");
+            this.message++;
+          },
+          plus() {
+            this.result = this.firstIn + this.secondIn;
+          },
+          sub() {
+            this.result = this.firstIn - this.secondIn;
+          },
+          mul() {
+            this.result = this.firstIn * this.secondIn;
+          },
+          div() {
+            if (this.secondIn != 0) {
+              this.result = this.firstIn / this.secondIn;
+            } else {
+              this.result = "Деление на 0!";
+            }
+          },
+        },
+        computed: {
+          change() {
+            return {
+              width: `${this.blockWidth}px`,
+              height: `${this.blockWidth}px`,
+              backgroundColor: this.blockColor,
+            };
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
