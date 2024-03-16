@@ -1,0 +1,185 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <div class="logo">
+            <img src="static/img/Logo.svg" alt="logo" />
+            <p class="Interno">Interno</p>
+          </div>
+          <div class="MenuBar">
+            <a href="/HW/HW-1/Template/index.html">Home </a>
+            <a href="#">Project </a>
+            <a href="">Blog</a>
+          </div>
+        </div>
+        <div class="banner-blog">
+          <div class="banner-blog-img">
+            <img src="static/img/Banner.svg " alt="banner picture" />
+            <div class="intro">
+              <div class="intro-tite">Articles & News</div>
+              <div class="intro-text">Home / Blog</div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-container">
+          <div class="latest-post">
+            <div class="latest-post-header">Latest Post</div>
+            <div class="latest-post-post">
+              <div class="latest-post-img">
+                <img src="static/img/Photo.svg" alt="post_image" />
+              </div>
+              <div class="latest-post-text">
+                <div class="latest-post-text-title">
+                  Low Cost Latest Invented Interior Designing Ideas
+                </div>
+                <div class="latest-post-text-p">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Libero nostrum vero, accusamus cum recusandae ducimus natus
+                    est unde aliquid neque tempora alias distinctio nemo animi.
+                  </p>
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="date-button">
+                  <p class="text-date">26 December,2022</p>
+                  <div class="butt">></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="articles-news">
+            <div class="articles-news-header">Articles & News</div>
+            <div class="temlate-article">
+              <div
+                v-for="item in items"
+                :key="item.id"
+                class="Blog-content-1"
+                :class="'style-' + item.id"
+              >
+                <div class="photo">
+                  <img
+                    :src="'static/img/At' + item.id + '.svg'"
+                    :alt="'photo' + item.id"
+                  />
+                  <div class="tag">{{ item.tag }}</div>
+                </div>
+                <div class="text-area">
+                  <h1 class="text-info">{{ item.title }}</h1>
+                  <div class="date-button">
+                    <p class="text-date">{{ item.date }}</p>
+                    <div class="butt">></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="paginator">
+          <!-- <div class="page">01</div> -->
+          <div
+            v-for="page in pages"
+            :key="page.id"
+            class="page"
+            :class="'style-page-' + page.id"
+          >
+            {{page.id}}
+          </div>
+        </div>
+        <div class="footer">
+          <div class="Interno--footer">
+            <div class="logo">
+              <img src="static/img/Logo.svg" alt="logo" />
+              <p class="Interno">Interno</p>
+            </div>
+            <div class="footer-text">
+              It is a long established fact that a reader will be distracted
+              lookings.
+            </div>
+            <div class="links">
+              <img src="static/img/tweet.svg" alt="" />
+              <img src="static/img/liin.svg" alt="" />
+            </div>
+          </div>
+          <div class="menu-bar">
+            <span class="menu-title">Pages</span>
+            <p class="links-bar" href="#">Home</p>
+            <p class="links-bar" href="#">Projects</p>
+            <p class="links-bar" href="#">Blog</p>
+          </div>
+          <div class="contacts">
+            <span class="contacts-title">Contact</span>
+            <p class="adress">
+              55 East Birchwood Ave. Brooklyn, New York 11201
+            </p>
+            <p class="email">contact@interno.com</p>
+            <p class="number">(123) 456 - 7890</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          items: [
+            {
+              id: 1,
+              tag: "Kitchan Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              id: 2,
+              tag: "Living Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              id: 3,
+              tag: "Interior Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              id: 4,
+              tag: "Kitchan Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              id: 5,
+              tag: "Living Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+            {
+              id: 6,
+              tag: "Interior Design",
+              title: "Let’s Get Solution For Building Construction Work",
+              date: "26 December,2022",
+            },
+          ],
+          pages: [{ id: "01" }, { id: "02" }, { id: "03" }, { id: ">" }],
+        },
+      });
+    </script>
+  </body>
+</html>
