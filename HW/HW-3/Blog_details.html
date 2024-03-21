@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag Cloud Articles</title>
+  <style>
+    .tag-cloud {
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 5px;
+      background-color: #ccc;
+      cursor: pointer;
+    }
+
+    .article {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="tag-cloud">
+      <span v-for="tag in tags" :key="tag" @click="filterArticles(tag)" class="tag">{{ tag }}</span>
+    </div>
+    <div class="articles">
+      <div v-for="article in filteredArticles" :key="article.id" class="article">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        articles: [
+          { id: 1, title: "Article 1", description: "Description for Article 1", tags: ["tag1", "tag2"] },
+          { id: 2, title: "Article 2", description: "Description for Article 2", tags: ["tag2", "tag3"] },
+          { id: 3, title: "Article 3", description: "Description for Article 3", tags: ["tag1", "tag3"] }
+        ],
+        tags: [],
+        selectedTag: null
+      },
+      created() {
+        this.articles.forEach(article => {
+          article.tags.forEach(tag => {
+            if (!this.tags.includes(tag)) {
+              this.tags.push(tag);
+            }
+          });
+        });
+      },
+      computed: {
+        filteredArticles() {
+          if (this.selectedTag) {
+            return this.articles.filter(article => article.tags.includes(this.selectedTag));
+          } else {
+            return this.articles;
+          }
+        }
+      },
+      methods: {
+        filterArticles(tag) {
+          this.selectedTag = tag;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
